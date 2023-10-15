@@ -1,0 +1,55 @@
+transparency(color, alpha)
+  color-mix(unquote('in srgb'), color, rgb(255, 255, 255) (1 - alpha) * 100%)
+
+.tooltipIconRoot
+  position relative
+  cursor pointer
+
+  &:hover
+    .tooltipMask
+      opacity 0.9
+      visibility visible
+
+  .tooltipMask
+    --arrow-size calc(1em / 1.4)
+    --padding calc(1em / 1.3)
+    --shadow-color transparency(var(--icon-color), 0.8)
+    --shadow-size 4px
+
+    display flex
+    flex-direction column
+    position absolute
+    bottom calc(var(--size) + var(--arrow-size))
+    left calc(-1 * var(--size))
+    padding var(--padding)
+    border-radius calc(1em / 1.8)
+    background-color var(--icon-color)
+    box-shadow 0 0 var(--shadow-size) var(--shadow-color)
+    opacity 0
+    visibility hidden
+    transition opacity 0.3s ease-in-out, visibility 0.3s ease-in-out
+
+    .content
+      color white
+      margin 0
+
+    .arrow
+      position relative
+      margin-top var(--padding)
+      margin-bottom calc(-1 * (var(--padding) + var(--arrow-size) / 2) - var(--shadow-size))
+      margin-left calc(var(--size) - var(--padding) + var(--size) / 2 - var(--arrow-size) / 2 - var(--shadow-size))
+      width calc(var(--arrow-size) + var(--shadow-size) * 2)
+      height calc(var(--arrow-size) / 2 + var(--shadow-size))
+      overflow hidden
+
+      &:after
+        content ""
+        position absolute
+        left calc((var(--arrow-size) - var(--arrow-size) / 1.4142) / 2 + var(--shadow-size))
+        bottom calc((var(--arrow-size) - var(--arrow-size) / 1.4142) / 2 + var(--shadow-size))
+        width calc(var(--arrow-size) / 1.4142)
+        height calc(var(--arrow-size) / 1.4142)
+        background var(--icon-color)
+        transform rotate(45deg)
+        box-shadow 0 0 var(--shadow-size) var(--shadow-color)
+
