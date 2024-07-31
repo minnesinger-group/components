@@ -8,7 +8,7 @@ transparency(color, alpha)
   &:hover
     .tooltip-mask
       opacity 0.9
-      visibility visible
+      transform scale(1.0)
 
   .tooltip-mask
     --arrow-size calc(1em / 1.4)
@@ -26,8 +26,9 @@ transparency(color, alpha)
     background-color var(--icon-color)
     box-shadow 0 0 var(--shadow-size) var(--shadow-color)
     opacity 0
-    visibility hidden
-    transition opacity 0.3s ease-in-out, visibility 0.3s ease-in-out
+    transform scale(0.0)
+    transform-origin calc(var(--size) + var(--size) / 2) calc(100% + var(--arrow-size) / 2)
+    transition opacity 0.3s ease-in-out, transform 0.3s ease-in-out
 
     .content
       margin 0
