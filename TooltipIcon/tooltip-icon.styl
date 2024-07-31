@@ -1,16 +1,16 @@
 transparency(color, alpha)
   color-mix(unquote('in srgb'), color, rgb(255, 255, 255) (1 - alpha) * 100%)
 
-.tooltipIconRoot
+.tooltip-icon-root
   position relative
   cursor pointer
 
   &:hover
-    .tooltipMask
+    .tooltip-mask
       opacity 0.9
       visibility visible
 
-  .tooltipMask
+  .tooltip-mask
     --arrow-size calc(1em / 1.4)
     --padding calc(1em / 1.3)
     --shadow-color transparency(var(--icon-color), 0.2)

@@ -1,12 +1,12 @@
 import { FunctionComponent } from 'preact';
 
-import InlineIcon, { InlineIconProps } from '../inlineIcon';
+import InlineIcon, { InlineIconProps } from '../InlineIcon';
 
-import './tooltipIcon.styl';
+import './tooltip-icon.styl';
 
 const Tooltip: FunctionComponent<{ text: string }> = ({ text }) => {
   return (
-    <div class="tooltipMask">
+    <div class="tooltip-mask">
       <p class="content">{text}</p>
       <span class="arrow" />
     </div>
@@ -24,7 +24,7 @@ const TooltipIcon: FunctionComponent<TooltipIconProps> = ({
   ...props
 }) => {
   return (
-    <InlineIcon class={`tooltipIconRoot ${className ? className : ''}`} {...props}>
+    <InlineIcon class={`tooltip-icon-root ${className ? className : ''}`} {...props}>
       {children}
       <Tooltip text={text} />
     </InlineIcon>

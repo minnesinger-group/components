@@ -1,6 +1,6 @@
 import { ComponentProps, FunctionComponent } from 'preact';
 
-import './inlineIcon.styl';
+import './inline-icon.styl';
 
 export interface InlineIconProps extends ComponentProps<'span'> {}
 
@@ -10,7 +10,7 @@ export const InlineIcon: FunctionComponent<InlineIconProps> = ({
   ...props
 }) => {
   return (
-    <span class={`inlineIconRoot ${className ? className : ''}`} {...props}>
+    <span class={`inline-icon-root ${className ? className : ''}`} {...props}>
       {children}
     </span>
   );
